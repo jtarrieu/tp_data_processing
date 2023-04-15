@@ -22,6 +22,7 @@ object ClimateService {
     regex.findFirstIn(description).isDefined
   }
 
+
   /**
    * parse a list of raw data and transport it with type into a list of CO2Record
    * if the ppm value is valid (some ppm values are negative (CO2Record's "isValidPpmValue" function))
