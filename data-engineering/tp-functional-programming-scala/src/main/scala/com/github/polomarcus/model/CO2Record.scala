@@ -12,7 +12,7 @@ case class CO2Record (year: Int,
        |""".stripMargin
   }
 
-  def isValidPpmValue: Boolean = {
+    def isValidPpmValue: Boolean = {
     ppm > 0
   }
 }
