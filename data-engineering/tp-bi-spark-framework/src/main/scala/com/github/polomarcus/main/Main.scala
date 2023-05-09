@@ -36,8 +36,8 @@ object Main {
     val count = NewsService.getNumberOfNews(newsDatasets)
     logger.info(s"We have ${count} news in our dataset")
 
-    //@TODO Save using PostgresService.save function
-    ???
+    PostgresService.save(newsDatasets)
+
     
     logger.info("Stopping the app")
     spark.stop()

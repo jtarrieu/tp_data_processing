@@ -40,3 +40,6 @@ services:
       POSTGRES_USER: user
       POSTGRES_DB: metabase
       POSTGRES_PASSWORD: password
+
+volumes:
+  postgres:

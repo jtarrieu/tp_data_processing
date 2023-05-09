@@ -7,13 +7,14 @@ import org.apache.spark.sql.{Dataset, SaveMode}
 object PostgresService {
   val logger = Logger(PostgresService.getClass)
   // Save it to Postgres into the table called "news"
-  val tableName = "news"
+  val tablename = "news"
   // These information help you to connect to postgres
   val user = "user"
   val password = "password"
+  val dbname = "metabase"
   val dbHost = sys.env.getOrElse("postgres", "localhost")
-  val url = s"jdbc:postgresql://$dbHost:5432/metabase"
-  val dbServer = s"$dbHost:5432/metabase"
+  val url = s"jdbc:postgresql://$dbHost:5432/$dbname"
+  val dbServer = s"$dbHost:5432/$dbname"
 
   def save(dataset: Dataset[News]) = {
     logger.info(
@@ -24,8 +25,13 @@ object PostgresService {
          |password : $password
          |""".stripMargin)
 
-    dataset.write
-      ???
+    dataset.write.
+      format("jdbc")
+      .option("url", url)
+      .option("dbtable", tablename)
+      .option("user", user)
+      .option("password", password)
+      .save()
 
     logger.info("Saved news inside PG database")
 
