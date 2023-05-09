@@ -27,9 +27,11 @@ class NewsServiceTest extends AnyFunSuite {
   val news2 = news.copy(title = "Another news")
   val newsClimate = news.copy(title = "Climat : pourquoi la France connaît-elle une sécheresse précoce ?", containsWordGlobalWarming = true)
   val fakeListNews = List(news, news2, newsClimate).toDS().as[News]
+  val list2 = List(news2).toDS().as[News]
 
   test("getNumberOfNews") {
     assert(NewsService.getNumberOfNews(fakeListNews) == 3)
+    assert(NewsService.getNumberOfNews(list2)==1)
   }
 
   test("filterNews") {

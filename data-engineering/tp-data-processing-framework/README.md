@@ -6,10 +6,13 @@ To process a large amount of data partitioned on a data lake, you can use data p
 
 Some questions :
 * What is Spark RDD API ?
+> Un API de traitement de données non ou semi-structurées
 * What is Spark Dataset API ?
-* With which languages can you use Spark ? 
+> Un API de traitement de données structurées
+* With which languages can you use Spark ?
+> Java, Scala, Python, R, SQL
 * Which data sources or data sinks can Spark work with ? 
-
+> DataBase, DataLake, DataWarehouse, Parquet, Avro, Json, CSV ...
 ### Analyse data with Apache Spark and Scala 
 One engineering team of your company created for you a TV News data stored as JSON inside the folder `data-news-json/`.
 
